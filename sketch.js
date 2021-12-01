@@ -1,5 +1,6 @@
 
 let colidiu = false;
+let d = 100; // dificuldade
 let pontosJogadorUm = 0;
 let pontosJogadorDois = 0;
 //Variaveis Fundo
@@ -16,21 +17,19 @@ let diametroBolinha = 20;
 let raioBolinha = diametroBolinha / 2;
 
 // Velocidade
-let k = 12;
+let k = 6; // velocidade da bolinha
 let velocidadeXBolinha = k;
 let velocidadeYBolinha = k;
 
 // Variáveis da Raquete
 
 //Medidas e Posição
-
 let wRaquete = 10;
 let hRaquete = 70;
 let xRaquete = wRaquete;
 let yRaquete = (hFundo - hRaquete) / 2 ;
 
 // Variáveis da Raquete2
-
 let xRaquete2 = wFundo - (2 * wRaquete);
 let yRaquete2 = yRaquete;
 let velocidadeYRaquete2 = 0;
@@ -44,8 +43,8 @@ function draw() {
   mostraBolinha();
   movimentoBolinha();
   verificaColisaoBorda();
-  mostraRaquete(xRaquete, yRaquete); //raquete1
-  mostraRaquete(xRaquete2, yRaquete2); //raquete2
+  mostraRaquete(xRaquete, yRaquete); //raquete1(esquerda)
+  mostraRaquete(xRaquete2, yRaquete2); //raquete2(direita)
   movimentaRaquete3();
   movimentaRaquete2();
   colisaoBiblioteca(xRaquete, yRaquete)
@@ -95,12 +94,12 @@ function verificaColisaoBorda(){
 }
 
 function movimentaRaquete2(){
-  velocidadeYRaquete2 = yBolinha - yRaquete2 - (wRaquete / 2) - 100;
+  velocidadeYRaquete2 = yBolinha - yRaquete2 - (wRaquete / 2)  - d;
   yRaquete2 += velocidadeYRaquete2;
 }
 
 function movimentaRaquete3(){
-  velocidadeYRaquete = yBolinha - yRaquete - (wRaquete / 2) - 100;
+  velocidadeYRaquete = yBolinha - yRaquete - (wRaquete / 2) - d;
   yRaquete += velocidadeYRaquete;
 }
 
